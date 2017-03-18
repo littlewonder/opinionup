@@ -1,1 +1,9 @@
 /* CSS declarations go here */
+
+.nav-wrapper a {
+    margin-left: 10px;
+}
+
+.nav-wrapper li {
+    margin-right: 10px;
+}
