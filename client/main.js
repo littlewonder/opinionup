@@ -27,13 +27,14 @@ Template.singlequestion.events({
         }
     },
     'click #disagree': function(event){
-        event.preventDefault();
+        if(status === 0){
         if(Meteor.userId()){
         let qid = Session.get('clicked');
         Meteor.call('decvote',qid);
     }else{
               document.getElementById("modal1").style.display="block";
         }
+    }
     }
 });
  

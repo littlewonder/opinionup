@@ -7,7 +7,8 @@ Meteor.methods({
     'dateAdded' : new Date(),
     'addedBy' : Meteor.userId(),
     'yes': 0,
-    'no': 0
+    'no': 0,
+    'flag': false
   });
   return questionid;
 },
