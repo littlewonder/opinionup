@@ -12,12 +12,19 @@ Meteor.methods({
   return questionid;
 },
    incvote: function(qid){
+     if(Meteor.userId()){
         Questions.update(qid,{$inc:{'yes':1}});
-    },
+    }
+  }
+,
     decvote: function(qid){
+      if(Meteor.userId()){
         Questions.update(qid,{$inc:{'no':1}});
-    },
+    }
+  },
     rm:function(qid){
+      if(Meteor.userId()){
          Questions.remove(qid);
     }
+}
 });
