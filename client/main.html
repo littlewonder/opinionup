@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    {{> navigation}} {{> desc}}
+    {{> navigation}} {{#if currentUser}} {{> addquestion}} {{/if}} {{#unless currentUser}} {{> desc}} {{/unless}}
 </body>
 
 <template name="navigation">
@@ -31,4 +31,16 @@
           </div>
       </div>
       </div>
+</template>
+
+<template name="addquestion">
+  <div class="container">
+  <form>
+     <div class="input-field col s12">
+    <textarea name="question" class="materialize-textarea" placeholder="Add A New Question"></textarea>
+      <br>
+       <button class="btn waves-effect waves-light blue lighten-2" type="submit" name="action">Post Question </button>
+            </div>
+  </form>
+  </div>
 </template>
