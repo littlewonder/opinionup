@@ -67,13 +67,13 @@
 
   <div class="card white darken-1 center-align">
     <div class="card-content white-text">
-      <span class="card-title activator blue-text text-lighten-2">{{questionAdded}} {{#if currenUser}}<i class="material-icons right">more_vert</i>{{/if}}</span>
+      <span class="card-title activator blue-text text-lighten-2">{{questionAdded}} {{#if currentUser}}<i class="material-icons right">more_vert</i>{{/if}}</span>
     </div>
     <div class="card-action">
               <a  class="green-text" id="agree">Agree({{yes}})</a>
               <a  class="red-text" id="disagree">Disagree({{no}})</a>
             </div>
-            {{#if currenUser}}
+            {{#if currentUser}}
     <div class="card-reveal" id="options">
       <span class="card-title grey-text text-darken-4 center-align"><i class="material-icons right">close</i></span>
       <span><a  class="card-title grey-text center-align" id="removeitem">Remove Post</a></span>

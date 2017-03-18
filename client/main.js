@@ -19,23 +19,30 @@ Template.singlequestion.events({
     },
     'click #agree': function(event){
         event.preventDefault();
+        let stat1 = Session.get(this._id);
+        if(stat1 !== 1 || stat1 === null){
         if(Meteor.userId()){
         let qid = Session.get('clicked');
         Meteor.call('incvote',qid);
+        Session.set(this._id,1);
         }else{
               document.getElementById("modal1").style.display="block";
         }
+    }
     },
-    'click #disagree': function(event){
-        if(status === 0){
+        'click #disagree': function(event){
+        event.preventDefault();
+        let stat2 = Session.get(this._id+'x');
+        if(stat2 !== 1 || stat2 === null){
         if(Meteor.userId()){
         let qid = Session.get('clicked');
         Meteor.call('decvote',qid);
-    }else{
+        Session.set(this._id+'x',1);
+        }else{
               document.getElementById("modal1").style.display="block";
         }
     }
-    }
+        }
 });
  
 
