@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    {{#if currentUser}} {{>navigation}}{{> addquestion}} {{> questionlist}} {{/if}} {{#unless currentUser}}{{> navigation}} {{> desc}} {{> questionlist}}{{> error}}{{/unless}}
+    {{#if currentUser}} {{>navigation}}{{> addquestion}} {{> questionlist}} {{/if}} {{#unless currentUser}}{{> navigation}} {{> desc}} {{> error}} {{> questionlist}}{{/unless}}
 </body>
 
 <template name="navigation">
@@ -86,10 +86,10 @@
 <template name="error">
     <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Please Login to share your Opinion</h4>
+      <h10>Please Login to share your Opinion</h10><div class="center-align" id="erroron">{{> loginButtons}}</div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">{{>loginButtons}}</a>
+      <a class=" modal-action modal-close waves-effect waves-green btn-flat" id="closeerror">Close</a>
     </div>
   </div>
 </template>

@@ -12,33 +12,31 @@ Template.singlequestion.events({
     },
     'click #removeitem': function(event){
         event.preventDefault();
+        if(Meteor.userId()){
         let qid = Session.get('clicked');
         Meteor.call('rm',qid);
+        }
     },
     'click #agree': function(event){
         event.preventDefault();
+        if(Meteor.userId()){
         let qid = Session.get('clicked');
         Meteor.call('incvote',qid);
+        }else{
+              document.getElementById("modal1").style.display="block";
+        }
     },
     'click #disagree': function(event){
         event.preventDefault();
+        if(Meteor.userId()){
         let qid = Session.get('clicked');
         Meteor.call('decvote',qid);
+    }else{
+              document.getElementById("modal1").style.display="block";
+        }
     }
 });
-
-
-Template.addquestion.helpers({ 
-    create: function() { 
-         
-    }, 
-    rendered: function() { 
-         
-    }, 
-    destroyed: function() { 
-         
-    }, 
-}); 
+ 
 
 Template.addquestion.events({ 
     'submit form': function(event) { 
@@ -48,3 +46,11 @@ Template.addquestion.events({
         event.target.question.value = "";
     } 
 }); 
+
+
+Template.error.events({
+    'click #closeerror' : function(event){
+        event.preventDefault();
+        document.getElementById("modal1").style.display="none";
+    }
+});

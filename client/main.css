@@ -15,3 +15,13 @@
 a {
     cursor: pointer;
 }
+
+#modal1 {
+    z-index: 99;
+    width: 25%;
+    text-align: center;
+}
+
+#erroron {
+    margin-top: 15px;
+}
