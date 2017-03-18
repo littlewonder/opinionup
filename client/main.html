@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    {{#if currentUser}} {{>navigationin}}{{> addquestion}} {{> questionlist}} {{/if}} {{#unless currentUser}}{{> navigation}} {{> desc}} {{> questionlist}}{{> error}}{{/unless}}
+    {{#if currentUser}} {{>navigation}}{{> addquestion}} {{> questionlist}} {{/if}} {{#unless currentUser}}{{> navigation}} {{> desc}} {{> questionlist}}{{> error}}{{/unless}}
 </body>
 
 <template name="navigation">
@@ -11,7 +11,7 @@
     <div class="nav-wrapper blue lighten-1">
       <a  class="brand-logo">OpinionUp</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>Have Your Say!</li>
+        {{>loggedstatus}}
       </ul>
     </div>
   </nav>
@@ -33,15 +33,13 @@
       </div>
 </template>
 
-<template name="navigationin">
-   <nav>
-    <div class="nav-wrapper blue lighten-1">
-      <a  class="brand-logo">OpinionUp</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>{{>loginButtons}}</li>
-      </ul>
-    </div>
-  </nav>
+
+<template name="loggedstatus">
+{{#if currentUser}}
+  <li>{{>loginButtons}}</li>
+{{else}}
+<li>Have Your Say!</li>
+{{/if}}
 </template>
 
 <template name="addquestion">
