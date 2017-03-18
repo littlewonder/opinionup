@@ -22,3 +22,6 @@ accounts-ui
 accounts-twitter
 twitter-config-ui
 materialize:materialize
+fortawesome:fontawesome
+planettraining:material-design-icons-font
+session

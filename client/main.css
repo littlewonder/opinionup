@@ -7,3 +7,11 @@
 .nav-wrapper li {
     margin-right: 10px;
 }
+
+#postq {
+    margin-bottom: 10px;
+}
+
+a {
+    cursor: pointer;
+}

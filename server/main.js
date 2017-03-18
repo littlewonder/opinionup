@@ -1,5 +1,23 @@
-import { Meteor } from 'meteor/meteor';
+Questions = new Mongo.Collection('questions');
 
-Meteor.startup(() => {
-  // code to run on server at startup
+Meteor.methods({
+  addquestion: function(questiontext){
+  let questionid = Questions.insert({
+    'questionAdded' : questiontext,
+    'dateAdded' : new Date(),
+    'addedBy' : Meteor.userId(),
+    'yes': 0,
+    'no': 0
+  });
+  return questionid;
+},
+   incvote: function(qid){
+        Questions.update(qid,{$inc:{'yes':1}});
+    },
+    decvote: function(qid){
+        Questions.update(qid,{$inc:{'no':1}});
+    },
+    rm:function(qid){
+         Questions.remove(qid);
+    }
 });
